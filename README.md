@@ -36,3 +36,13 @@ java.lang.Throwable: Fail to find scope for next step: current: Token(61eefabb),
 ```
 
 Second, in the case when there are no differences between the two streams, the heap blows up.
+
+
+# Diagnostics
+
+Two JFR recordings are available in the [`profiling`](/profiling) folder, one for each test case. They can be opened
+with Java Mission Control.
+
+The one concerning the case that hangs forever has been recorded by letting the JVM go wild for around 15 seconds and 
+then sending it a TERM signal. Another 10 seconds were necessary for it to acknowledge and finally terminate. Killing
+the JVM would leave a truncated or empty recording.
